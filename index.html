@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qubo Air Purifier | Golden Products</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+        body{background:#f5f7fa;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:15px}
+        .container{max-width:800px;width:100%;background:#fff;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.1);overflow:hidden;margin-top:10px}
+        header{background:linear-gradient(to right,#2c3e50,#4ca1af);color:#fff;padding:20px;text-align:center;border-radius:20px 20px 0 0}
+        .logo{font-size:1.8rem;font-weight:700;margin-bottom:5px}
+        .tagline{font-size:1rem;opacity:0.9}
+        .main-content{padding:20px}
+        .product-image-section{margin-bottom:15px}
+        .main-image{width:100%;border-radius:15px;margin-bottom:10px}
+        .image-gallery{display:flex;gap:8px;overflow-x:auto;padding:5px 0}
+        .image-gallery img{width:80px;height:80px;object-fit:cover;border-radius:10px;cursor:pointer}
+        .product-title{font-size:1.4rem;color:#2c3e50;margin-bottom:10px;line-height:1.3}
+        .features{list-style:none;margin:15px 0}
+        .features li{padding:5px 0;border-bottom:1px solid #eee}
+        .features li:before{content:"✓";color:#27ae60;font-weight:700;margin-right:8px}
+        .price{font-size:1.5rem;color:#e74c3c;margin:15px 0;font-weight:700}
+        .buttons{display:flex;gap:10px;margin:20px 0}
+        .btn{padding:12px 20px;border:none;border-radius:25px;font-size:1rem;font-weight:600;cursor:pointer;flex:1;text-align:center;text-decoration:none}
+        .btn-buy{background:#ffd700;color:#000}
+        .btn-more{background:#7f8c8d;color:#fff}
+        .platform-links{display:flex;justify-content:center;gap:15px;margin-top:15px}
+        .platform-btn{padding:8px 15px;background:#f8f9fa;border-radius:20px;text-decoration:none;color:#2c3e50;font-weight:600}
+        footer{text-align:center;padding:15px;color:#7f8c8d;margin-top:15px}
+        @media (max-width:600px){.buttons{flex-direction:column}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Golden Products</div>
+            <div class="tagline">Breathe Clean, Live Healthy</div>
+        </header>
+        
+        <div class="main-content">
+            <div class="product-image-section">
+                <img id="mainImage" src="https://m.media-amazon.com/images/I/51+7Q1LCN6L._SX679_.jpg" alt="Qubo Smart Air Purifier" class="main-image">
+                
+                <div class="image-gallery">
+                    <img src="https://m.media-amazon.com/images/I/61OHLo2R0+L._SL1000_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/61gb74ocpcL._SL1080_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/61l8LX-67PL._SL1000_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/61ZlHk3uUyL._SL1000_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/61Wf1A-f3gL._SL1000_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/61rxCkJEi3L._SL1000_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/610o-XQ-3yL._SL1000_.jpg" onclick="changeImage(this.src)">
+                    <img src="https://m.media-amazon.com/images/I/61V+8CuDD+L._SL1000_.jpg" onclick="changeImage(this.src)">
+                </div>
+            </div>
+            
+            <div class="product-details">
+                <h1 class="product-title">Qubo Smart Air Purifier Q200 for Home by Hero Group</h1>
+                
+                <ul class="features">
+                    <li>200 Sqft Coverage Area</li>
+                    <li>99.99% Allergen Removal</li>
+                    <li>4-Layer True HEPA H13 Filter</li>
+                    <li>9000 Hrs Filter Life</li>
+                    <li>Smart App & Voice Control</li>
+                    <li>Quiet Night Mode</li>
+                </ul>
+                
+                <div class="price">Special Offer Price</div>
+                
+                <div class="buttons">
+                    <a href="https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM" class="btn btn-buy">Buy Now via Amazon</a>
+                    <a href="/purifiers" class="btn btn-more">See More Purifiers</a>
+                </div>
+                
+                <div class="platform-links">
+                    <a href="/amazon" class="platform-btn">Amazon</a>
+                    <a href="/flipkart" class="platform-btn">Flipkart</a>
+                    <a href="/shopify" class="platform-btn">Shopify</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Golden Products. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function changeImage(src){document.getElementById('mainImage').src=src}
+        
+        document.addEventListener('DOMContentLoaded',function(){
+            document.querySelector('a[href="/amazon"]').addEventListener('click',function(e){
+                e.preventDefault();window.location.href='https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM';
+            });
+            document.querySelector('a[href="/flipkart"]').addEventListener('click',function(e){
+                e.preventDefault();window.location.href='https://www.flipkart.com/';
+            });
+            document.querySelector('a[href="/shopify"]').addEventListener('click',function(e){
+                e.preventDefault();window.location.href='https://www.shopify.com/';
+            });
+            document.querySelector('a[href="/purifiers"]').addEventListener('click',function(e){
+                e.preventDefault();window.location.href='/purifiers';
+            });
+        });
+        
+        if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
+            document.querySelector('.btn-buy').href='amazon://nav/physical/search?kw=Qubo%20Smart%20Air%20Purifier';
+        }
+    </script>
+</body>
+</html>
