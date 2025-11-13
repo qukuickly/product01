@@ -8,9 +8,9 @@
         *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
         body{background:#f5f7fa;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:15px}
         .container{max-width:800px;width:100%;background:#fff;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.1);overflow:hidden;margin-top:10px}
-        header{background:linear-gradient(to right,#2c3e50,#4ca1af);color:#fff;padding:20px;text-align:center;border-radius:20px 20px 0 0}
-        .logo{font-size:1.8rem;font-weight:700;margin-bottom:5px}
-        .tagline{font-size:1rem;opacity:0.9}
+        header{background:linear-gradient(to right,#2c3e50,#4ca1af);color:#fff;padding:12px;text-align:center;border-radius:20px 20px 0 0}
+        .logo{font-size:1.5rem;font-weight:700;margin-bottom:3px}
+        .tagline{font-size:0.85rem;opacity:0.9}
         .main-content{padding:20px}
         .product-image-section{margin-bottom:15px}
         .main-image{width:100%;border-radius:15px;margin-bottom:10px}
@@ -48,7 +48,7 @@
         
         <div class="main-content">
             <div class="product-image-section">
-                <img id="mainImage" src="https://amzn.to/4hUrLGK" alt="Qubo Smart Air Purifier" class="main-image">
+                <img id="mainImage" src="https://m.media-amazon.com/images/I/51+7Q1LCN6L._SX679_.jpg" alt="Qubo Smart Air Purifier" class="main-image">
                 
                 <div class="image-gallery">
                     <img src="https://m.media-amazon.com/images/I/61OHLo2R0+L._SL1000_.jpg" onclick="changeImage(this.src)">
@@ -65,7 +65,7 @@
                 <div class="roi-button-container">
                     <div class="roi-title">HIGH ROI INVESTMENT</div>
                     <div class="roi-subtitle">Save ₹8,000 annually on health costs • 5-year filter life</div>
-                    <a href="https://amzn.to/4hUrLGK" class="roi-btn">Buy Now via Amazon</a>
+                    <a href="https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM" class="roi-btn" id="roiBtn">Buy Now via Amazon</a>
                 </div>
             </div>
             
@@ -84,14 +84,14 @@
                 <div class="price">Special Offer Price</div>
                 
                 <div class="buttons">
-                    <a href="https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM" class="btn btn-buy">Buy Now via Amazon</a>
-                    <a href="/purifiers" class="btn btn-more">See More Purifiers</a>
+                    <a href="https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM" class="btn btn-buy" id="buyBtn">Buy Now via Amazon</a>
+                    <a href="/purifiers" class="btn btn-more" id="moreBtn">See More Purifiers</a>
                 </div>
                 
                 <div class="platform-links">
-                    <a href="/amazon" class="platform-btn">Amazon</a>
-                    <a href="/flipkart" class="platform-btn">Flipkart</a>
-                    <a href="/shopify" class="platform-btn">Shopify</a>
+                    <a href="https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM" class="platform-btn" id="amazonLink">Amazon</a>
+                    <a href="https://www.flipkart.com/" class="platform-btn" id="flipkartLink">Flipkart</a>
+                    <a href="https://www.shopify.com/" class="platform-btn" id="shopifyLink">Shopify</a>
                 </div>
             </div>
         </div>
@@ -102,34 +102,70 @@
     </footer>
 
     <script>
-        function changeImage(src){document.getElementById('mainImage').src=src}
+        function changeImage(src){
+            document.getElementById('mainImage').src = src;
+        }
         
-        document.addEventListener('DOMContentLoaded',function(){
-            document.querySelector('a[href="/amazon"]').addEventListener('click',function(e){
-                e.preventDefault();window.location.href='https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM';
-            });
-            document.querySelector('a[href="/flipkart"]').addEventListener('click',function(e){
-                e.preventDefault();window.location.href='https://www.flipkart.com/';
-            });
-            document.querySelector('a[href="/shopify"]').addEventListener('click',function(e){
-                e.preventDefault();window.location.href='https://www.shopify.com/';
-            });
-            document.querySelector('a[href="/purifiers"]').addEventListener('click',function(e){
-                e.preventDefault();window.location.href='/purifiers';
-            });
+        // Mobile detection for Amazon app
+        function isMobileDevice() {
+            return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        }
+        
+        // Set up redirects for all buttons
+        document.addEventListener('DOMContentLoaded', function(){
+            // Get all elements
+            const roiBtn = document.getElementById('roiBtn');
+            const buyBtn = document.getElementById('buyBtn');
+            const moreBtn = document.getElementById('moreBtn');
+            const amazonLink = document.getElementById('amazonLink');
+            const flipkartLink = document.getElementById('flipkartLink');
+            const shopifyLink = document.getElementById('shopifyLink');
             
-            // Add click event to ROI button
-            document.querySelector('.roi-btn').addEventListener('click', function(e) {
-                if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
-                    e.preventDefault();
+            // Amazon product URL
+            const amazonUrl = 'https://www.amazon.in/Qubo-Purifier-Pollutants-Allergens-Filtration/dp/B0CMH94KPM';
+            
+            // Set up ROI button
+            roiBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if(isMobileDevice()) {
                     window.location.href = 'amazon://nav/physical/search?kw=Qubo%20Smart%20Air%20Purifier';
+                } else {
+                    window.location.href = amazonUrl;
                 }
             });
+            
+            // Set up Buy Now button
+            buyBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if(isMobileDevice()) {
+                    window.location.href = 'amazon://nav/physical/search?kw=Qubo%20Smart%20Air%20Purifier';
+                } else {
+                    window.location.href = amazonUrl;
+                }
+            });
+            
+            // Set up See More button
+            moreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = '/purifiers';
+            });
+            
+            // Set up platform links
+            amazonLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = amazonUrl;
+            });
+            
+            flipkartLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'https://www.flipkart.com/';
+            });
+            
+            shopifyLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'https://www.shopify.com/';
+            });
         });
-        
-        if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
-            document.querySelector('.btn-buy').href='amazon://nav/physical/search?kw=Qubo%20Smart%20Air%20Purifier';
-        }
     </script>
 </body>
 </html>
